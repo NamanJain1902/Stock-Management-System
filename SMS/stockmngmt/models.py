@@ -17,4 +17,4 @@ class Stock(models.Model):
   export_to_CSV = models.BooleanField(default=False)
 
   def __str__(self):
-    return self.category + ': ' + self.item_name + ' - ' + str(self.quantity)
+    return f"{self.category}: {self.item_name} - {str(self.quantity)}"

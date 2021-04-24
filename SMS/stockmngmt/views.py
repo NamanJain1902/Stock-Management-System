@@ -12,12 +12,23 @@ def home(request):
   return render(request, "home.html", context)
 
 def list_items(request):
+  form = StockSearchForm(request.POST or None)
   title = "List of Items."
   querySet = Stock.objects.all()
   context = {
+    "form": form,
     "title" : title,
     "querySet": querySet 
   }
+
+  if request.method == 'POST':
+    querySet = Stock.objects.filter(category__icontains=form['category'].value(),
+                                    item_name__icontains=form['item_name'].value())
+    context = {
+      "form": form,
+      "title" : title,
+      "querySet": querySet 
+    }
 
   return render(request, "list_items.html", context)
 

@@ -13,3 +13,9 @@ class StockCreateForm(forms.ModelForm):
   
   # def is_valid(self):
   #   return True
+
+class StockSearchForm(forms.ModelForm):
+  class Meta:
+    model = Stock
+    fields = ['category', 'item_name']
+  

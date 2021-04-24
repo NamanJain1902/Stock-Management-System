@@ -11,5 +11,5 @@ class StockCreateForm(forms.ModelForm):
     model = Stock
     fields = ['category', 'item_name', 'quantity']
   
-  def is_valid(self):
-    return True
+  # def is_valid(self):
+  #   return True
